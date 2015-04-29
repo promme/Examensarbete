@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.plattysoft.leonids.ParticleSystem;
 import com.plattysoft.leonids.modifiers.ScaleModifier;
@@ -20,7 +21,7 @@ import se.nackademin.examensarbete.handlers.ResourceHandler;
  */
 public class GameFragment extends Fragment implements View.OnClickListener {
 
-    private Button catButton;
+    private ImageButton catButton;
     private EventBus bus = EventBus.getDefault();
 
     public GameFragment() {
@@ -30,7 +31,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game, container, false);
-        catButton = (Button) view.findViewById(R.id.game_kittenButton);
+        catButton = (ImageButton) view.findViewById(R.id.game_kittenButton);
         catButton.setOnClickListener(this);
         return view;
     }
