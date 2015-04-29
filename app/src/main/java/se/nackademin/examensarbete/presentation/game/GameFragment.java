@@ -12,6 +12,7 @@ import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.GameThread;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
+import se.nackademin.examensarbete.handlers.ResourceHandler;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,6 +38,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        ResourceHandler.getInstance().addCats(1);
         CatClickEvent event = new CatClickEvent();
         bus.post(event);
     }

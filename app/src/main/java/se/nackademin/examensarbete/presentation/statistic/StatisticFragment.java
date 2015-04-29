@@ -42,12 +42,12 @@ public class StatisticFragment extends Fragment {
     }
 
     public void onEventMainThread(CatClickEvent event) {
-        ResourceHandler.getInstance().addCats(1);
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        clicks.setText("" + ResourceHandler.getInstance().getNumberOfCats());
+        //TODO Uppdatera vyn från resurshanterarn
     }
 }
