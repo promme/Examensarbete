@@ -11,6 +11,7 @@ import android.widget.TextView;
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
+import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,6 +43,7 @@ public class StatisticFragment extends Fragment {
     }
 
     public void onEvent(CatClickEvent event){
+        Timber.d("onEvent");
         click++;
         clicks.setText(""+click);
     }

@@ -16,6 +16,7 @@ import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.presentation.game.GameFragment;
 import se.nackademin.examensarbete.presentation.shop.ShopFragment;
 import se.nackademin.examensarbete.presentation.statistic.StatisticFragment;
+import timber.log.Timber;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -29,7 +30,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Timber.plant(new Timber.DebugTree());
         //Fullscreen, remove the statusbar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
