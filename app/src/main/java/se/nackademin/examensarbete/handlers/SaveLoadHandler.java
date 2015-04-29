@@ -31,11 +31,11 @@ public class SaveLoadHandler {
 
     public static ResourceHandler LoadResourcehandler(Context context){
         try {
-        FileInputStream fis = context.openFileInput(fileName);
-        ObjectInputStream is = new ObjectInputStream(fis);
-        ResourceHandler resourceHandler = (ResourceHandler) is.readObject();
-        is.close();
-        fis.close();
+        FileInputStream fileInputStream = context.openFileInput(fileName);
+        ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+        ResourceHandler resourceHandler = (ResourceHandler) inputStream.readObject();
+        inputStream.close();
+        fileInputStream.close();
         Timber.d("Loaded file successfully.");
         return resourceHandler;
         } catch (IOException e) {
