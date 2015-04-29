@@ -15,6 +15,10 @@ public class ResourceHandler implements Serializable {
 
     }
 
+    public static void setResourceHandler(ResourceHandler instance) {
+        ResourceHandler.instance = instance;
+    }
+
     public void setNumberOfCats(int numberOfCats) {
         this.numberOfCats = numberOfCats;
     }

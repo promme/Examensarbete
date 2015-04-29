@@ -11,6 +11,7 @@ import android.widget.TextView;
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
+import se.nackademin.examensarbete.handlers.ResourceHandler;
 import timber.log.Timber;
 
 /**
@@ -31,6 +32,7 @@ public class StatisticFragment extends Fragment {
         super.onCreate(savedInstanceState);
         bus.register(this);
 
+
     }
 
     @Override
@@ -43,9 +45,16 @@ public class StatisticFragment extends Fragment {
     }
 
     public void onEvent(CatClickEvent event){
+        ResourceHandler.getInstance().addCats(1);
         Timber.d("onEvent");
-        click++;
-        clicks.setText(""+click);
+        clicks.setText("" + ResourceHandler.getInstance().getNumberOfCats());
+        Timber.d("Resourcehandler " + ResourceHandler.getInstance());
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        clicks.setText("" + ResourceHandler.getInstance().getNumberOfCats());
+
+    }
 }
