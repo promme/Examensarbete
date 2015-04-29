@@ -11,7 +11,7 @@ import android.widget.TextView;
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
-import timber.log.Timber;
+import se.nackademin.examensarbete.handlers.ResourceHandler;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,13 +37,17 @@ public class StatisticFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_statistic, container, false);
-        clicks = (TextView)view.findViewById(R.id.statisticClicksTextview);
+        clicks = (TextView) view.findViewById(R.id.statisticClicksTextview);
         return view;
     }
 
-    public void onEventMainThread(CatClickEvent event){
-        Timber.d("onEvent");
-        click++;
-        clicks.setText(""+click);
+    public void onEventMainThread(CatClickEvent event) {
+        ResourceHandler.getInstance().addCats(1);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        clicks.setText("" + ResourceHandler.getInstance().getNumberOfCats());
     }
 }
