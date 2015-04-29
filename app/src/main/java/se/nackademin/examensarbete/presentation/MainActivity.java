@@ -40,8 +40,11 @@ public class MainActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_main);
 
-        //Setup fragments and start gamethread.
+        //Setup fragments
         setupGameLayout();
+
+        //must be after gameLayout
+        startGameThread();
     }
 
     private void setupGameLayout(){
@@ -55,7 +58,7 @@ public class MainActivity extends ActionBarActivity {
         viewPager.setAdapter(fragmentAdapter);
         viewPager.setCurrentItem(1);
         viewPager.setOffscreenPageLimit(2);
-        startGameThread();
+
     }
 
     private void startGameThread(){
