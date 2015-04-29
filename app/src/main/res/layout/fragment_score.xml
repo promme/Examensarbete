@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF0000"
+    tools:context="se.nackademin.examensarbete.score">
+
+    <TextView
+        android:id="@+id/catsResource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cats_resources" />
+
+    <TextView
+        android:id="@+id/catsResourceNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/catsResource"
+        android:layout_toRightOf="@+id/catsResource" />
+
+
+    <TextView
+        android:id="@+id/treesResource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/catsResource"
+        android:text="@string/tree_resources" />
+
+    <TextView
+        android:id="@+id/treesResourceNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/treesResource"
+        android:layout_toRightOf="@+id/treesResource" />
+
+    <TextView
+        android:id="@+id/stoneResource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/treesResource"
+        android:text="@string/stone_resources" />
+
+    <TextView
+        android:id="@+id/stoneResourceNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/stoneResource"
+        android:layout_toRightOf="@+id/stoneResource" />
+
+</RelativeLayout>

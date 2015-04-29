@@ -6,19 +6,14 @@
     android:weightSum="100"
     tools:context=".MainActivity">
 
-    <FrameLayout
+    <fragment
+        android:name="se.nackademin.examensarbete.presentation.statistic.ScoreFragment"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="15"
-        android:background="#ff8787ff">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Score" />
-    </FrameLayout>
+        android:background="#ff8787ff"
+        android:id="@+id/scoreFragment_placeholder">
+    </fragment>
 
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/fragment_viewpager"
