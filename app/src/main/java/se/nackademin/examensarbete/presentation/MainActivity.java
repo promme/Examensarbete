@@ -4,18 +4,17 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.List;
 import java.util.Vector;
 
 import de.greenrobot.event.EventBus;
-import se.nackademin.examensarbete.GameThread;
 import se.nackademin.examensarbete.R;
-import se.nackademin.examensarbete.eventbus.CatClickEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
 import se.nackademin.examensarbete.handlers.SaveLoadHandler;
 import se.nackademin.examensarbete.presentation.game.GameFragment;
@@ -37,20 +36,20 @@ public class MainActivity extends ActionBarActivity {
 
         //Planting Timber tree for logging
         Timber.plant(new Timber.DebugTree());
-
         //Fullscreen, remove the statusbar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_main);
-
         //Setup fragments
         setupGameLayout();
-
         //must be after gameLayout
         startGameThread();
+        //Admob
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
-    private void setupGameLayout(){
+    private void setupGameLayout() {
         List<Fragment> fragmentList = new Vector<>();
         fragmentList.add(Fragment.instantiate(this, ShopFragment.class.getName()));
         fragmentList.add(Fragment.instantiate(this, GameFragment.class.getName()));
@@ -63,30 +62,8 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    private void startGameThread(){
-        new Thread(new GameThread()).start();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    private void startGameThread() {
+        //new Thread(new GameThread()).start();
     }
 
     @Override

@@ -11,4 +11,7 @@
     <string name="stone_resources">Stone : </string>
     <string name="cats_resources">Cats : </string>
 
+<!-- Admob -->
+    <string name="banner_ad_unit_id">ca-app-pub-8514264669161248/5859177417</string>
+
 </resources>

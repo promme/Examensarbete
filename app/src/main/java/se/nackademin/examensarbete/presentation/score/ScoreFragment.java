@@ -1,5 +1,4 @@
-package se.nackademin.examensarbete.presentation.statistic;
-
+package se.nackademin.examensarbete.presentation.score;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -31,8 +30,7 @@ public class ScoreFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_score, container, false);
         treesTextView = (TextView) view.findViewById(R.id.treesResourceNumber);
         stonesTextView = (TextView) view.findViewById(R.id.stoneResourceNumber  );

@@ -1,6 +1,5 @@
 package se.nackademin.examensarbete.presentation.game;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,11 +8,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.plattysoft.leonids.ParticleSystem;
-import com.plattysoft.leonids.modifiers.AlphaModifier;
 import com.plattysoft.leonids.modifiers.ScaleModifier;
 
 import de.greenrobot.event.EventBus;
-import se.nackademin.examensarbete.GameThread;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
@@ -31,9 +28,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game, container, false);
         catButton = (Button) view.findViewById(R.id.game_kittenButton);
         catButton.setOnClickListener(this);

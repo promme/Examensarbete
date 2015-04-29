@@ -15,10 +15,11 @@ import timber.log.Timber;
  */
 public class SaveLoadHandler {
     private static String fileName = "savefile.txt";
-    public static void SaveResourceHandler(Context context, ResourceHandler resourceHandler){
+
+    public static void SaveResourceHandler(Context context, ResourceHandler resourceHandler) {
         try {
-        FileOutputStream fileOutputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
-        ObjectOutputStream outputStream = new ObjectOutputStream(fileOutputStream);
+            FileOutputStream fileOutputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
+            ObjectOutputStream outputStream = new ObjectOutputStream(fileOutputStream);
             outputStream.writeObject(resourceHandler);
             outputStream.close();
             Timber.d("Saved to file successfully.");
@@ -29,15 +30,15 @@ public class SaveLoadHandler {
         }
     }
 
-    public static ResourceHandler LoadResourcehandler(Context context){
+    public static ResourceHandler LoadResourcehandler(Context context) {
         try {
-        FileInputStream fileInputStream = context.openFileInput(fileName);
-        ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-        ResourceHandler resourceHandler = (ResourceHandler) inputStream.readObject();
-        inputStream.close();
-        fileInputStream.close();
-        Timber.d("Loaded file successfully.");
-        return resourceHandler;
+            FileInputStream fileInputStream = context.openFileInput(fileName);
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            ResourceHandler resourceHandler = (ResourceHandler) inputStream.readObject();
+            inputStream.close();
+            fileInputStream.close();
+            Timber.d("Loaded file successfully.");
+            return resourceHandler;
         } catch (IOException e) {
             e.printStackTrace();
             Timber.d("Could not read file");
@@ -47,7 +48,5 @@ public class SaveLoadHandler {
             Timber.d("Class not found");
             return null;
         }
-
     }
-
 }
