@@ -1,9 +1,11 @@
 package se.nackademin.examensarbete.handlers;
 
+import java.io.Serializable;
+
 /**
  * Created by olofberg on 15-04-29.
  */
-public class ResourceHandler {
+public class ResourceHandler implements Serializable {
     private static ResourceHandler instance;
     private int numberOfTrees = 0;
     private int numberOfStones = 0;
