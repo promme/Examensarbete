@@ -48,6 +48,7 @@ public class MainActivity extends ActionBarActivity {
         viewPager = (ViewPager) findViewById(R.id.fragment_viewpager);
         viewPager.setAdapter(fragmentAdapter);
         viewPager.setCurrentItem(1);
+        viewPager.setOffscreenPageLimit(2);
     }
 
     @Override
