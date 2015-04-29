@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import java.util.List;
 import java.util.Vector;
@@ -14,6 +15,7 @@ import java.util.Vector;
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.GameThread;
 import se.nackademin.examensarbete.R;
+import se.nackademin.examensarbete.eventbus.CatClickEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
 import se.nackademin.examensarbete.handlers.SaveLoadHandler;
 import se.nackademin.examensarbete.presentation.game.GameFragment;
@@ -27,6 +29,7 @@ public class MainActivity extends ActionBarActivity {
     private ViewPager viewPager;
     private FragmentAdapter fragmentAdapter;
     private EventBus bus = EventBus.getDefault();
+    private TextView scoreTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +51,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void setupGameLayout(){
-
-        List<Fragment> fragmentList = new Vector<Fragment>();
+        List<Fragment> fragmentList = new Vector<>();
         fragmentList.add(Fragment.instantiate(this, ShopFragment.class.getName()));
         fragmentList.add(Fragment.instantiate(this, GameFragment.class.getName()));
         fragmentList.add(Fragment.instantiate(this, StatisticFragment.class.getName()));
