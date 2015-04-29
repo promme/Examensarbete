@@ -8,6 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.plattysoft.leonids.ParticleSystem;
+import com.plattysoft.leonids.modifiers.AlphaModifier;
+import com.plattysoft.leonids.modifiers.ScaleModifier;
+
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.GameThread;
 import se.nackademin.examensarbete.R;
@@ -38,6 +42,15 @@ public class GameFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        new ParticleSystem(getActivity(), 10, R.drawable.star, 3000)
+                .setSpeedByComponentsRange(-0.1f, 0.1f, -0.1f, 0.02f)
+                .setAcceleration(0.000003f, 90)
+                .setInitialRotationRange(0, 360)
+                .setRotationSpeed(120)
+                .setFadeOut(2000)
+                .addModifier(new ScaleModifier(0f, 1.5f, 0, 1500))
+                .oneShot(v, 1);
+
         ResourceHandler.getInstance().addCats(1);
         CatClickEvent event = new CatClickEvent();
         bus.post(event);
