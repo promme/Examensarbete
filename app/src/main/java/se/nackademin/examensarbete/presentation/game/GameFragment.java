@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import de.greenrobot.event.EventBus;
+import se.nackademin.examensarbete.GameThread;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
 
@@ -16,7 +17,7 @@ import se.nackademin.examensarbete.eventbus.CatClickEvent;
  * A simple {@link Fragment} subclass.
  */
 public class GameFragment extends Fragment implements View.OnClickListener {
-    private final String TAG = getClass().getName();
+
     private Button catButton;
     private EventBus bus = EventBus.getDefault();
 

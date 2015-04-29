@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Vector;
 
 import de.greenrobot.event.EventBus;
+import se.nackademin.examensarbete.GameThread;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.presentation.game.GameFragment;
 import se.nackademin.examensarbete.presentation.shop.ShopFragment;
@@ -21,25 +22,27 @@ import timber.log.Timber;
 
 public class MainActivity extends ActionBarActivity {
 
-    private final String TAG = getClass().getName();
     private ViewPager viewPager;
     private FragmentAdapter fragmentAdapter;
     private EventBus bus = EventBus.getDefault();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Planting Timber tree for logging
         Timber.plant(new Timber.DebugTree());
+
         //Fullscreen, remove the statusbar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
-        setupFragments();
 
+        //Setup fragments and start gamethread.
+        setupGameLayout();
     }
 
-    private void setupFragments(){
+    private void setupGameLayout(){
         List<Fragment> fragmentList = new Vector<Fragment>();
         fragmentList.add(Fragment.instantiate(this, ShopFragment.class.getName()));
         fragmentList.add(Fragment.instantiate(this, GameFragment.class.getName()));
@@ -48,6 +51,12 @@ public class MainActivity extends ActionBarActivity {
         viewPager = (ViewPager) findViewById(R.id.fragment_viewpager);
         viewPager.setAdapter(fragmentAdapter);
         viewPager.setCurrentItem(1);
+        startGameThread();
+
+    }
+
+    private void startGameThread(){
+        new Thread(new GameThread()).start();
     }
 
     @Override

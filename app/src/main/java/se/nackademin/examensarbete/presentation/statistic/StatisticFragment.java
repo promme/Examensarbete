@@ -17,10 +17,10 @@ import timber.log.Timber;
  * A simple {@link Fragment} subclass.
  */
 public class StatisticFragment extends Fragment {
-    private final String TAG = getClass().getName();
+
+    private EventBus bus = EventBus.getDefault();
     private TextView clicks;
     int click = 0;
-    private EventBus bus = EventBus.getDefault();
 
     public StatisticFragment() {
         // Required empty public constructor
@@ -30,7 +30,6 @@ public class StatisticFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bus.register(this);
-
     }
 
     @Override
@@ -42,10 +41,9 @@ public class StatisticFragment extends Fragment {
         return view;
     }
 
-    public void onEvent(CatClickEvent event){
+    public void onEventMainThread(CatClickEvent event){
         Timber.d("onEvent");
         click++;
         clicks.setText(""+click);
     }
-
 }
