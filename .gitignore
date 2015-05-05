@@ -4,3 +4,7 @@
 /build
 *.iml
 .idea
+Examensarbete.iml
+.idea/gradle.xml
+app/app.iml
+.idea/misc.xml
