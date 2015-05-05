@@ -15,7 +15,7 @@ public class StatisticListViewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return statisticList.size();
     }
 
     @Override

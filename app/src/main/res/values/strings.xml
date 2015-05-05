@@ -14,4 +14,6 @@
 <!-- Admob -->
     <string name="banner_ad_unit_id">ca-app-pub-8514264669161248/5859177417</string>
 
+<!-- Google Play Games Services -->
+    <string name="app_id">365152356918</string>
 </resources>
