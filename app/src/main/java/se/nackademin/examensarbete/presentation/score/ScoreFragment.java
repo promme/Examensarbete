@@ -33,15 +33,18 @@ public class ScoreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_score, container, false);
         treesTextView = (TextView) view.findViewById(R.id.treesResourceNumber);
-        stonesTextView = (TextView) view.findViewById(R.id.stoneResourceNumber  );
+        stonesTextView = (TextView) view.findViewById(R.id.stoneResourceNumber);
         catsTextView = (TextView) view.findViewById(R.id.catsResourceNumber);
+        treesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfTrees()));
+        stonesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfStones()));
+        catsTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfCats()));
         return view;
     }
 
     public void onEventMainThread(CatClickEvent event) {
-    treesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfTrees()));
-    stonesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfStones()));
-    catsTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfCats()));
+        treesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfTrees()));
+        stonesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfStones()));
+        catsTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfCats()));
     }
 
     @Override

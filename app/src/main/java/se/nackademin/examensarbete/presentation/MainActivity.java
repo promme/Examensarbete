@@ -34,6 +34,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ResourceHandler.setResourceHandler(SaveLoadHandler.LoadResourcehandler(this));
         //Planting Timber tree for logging
         Timber.plant(new Timber.DebugTree());
         //Fullscreen, remove the statusbar
