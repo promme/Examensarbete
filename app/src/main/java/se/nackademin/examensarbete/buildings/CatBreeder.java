@@ -4,7 +4,7 @@ package se.nackademin.examensarbete.buildings;
  * Created by olofberg on 15-04-29.
  */
 public class CatBreeder implements Building {
-    private String name = "Cat-Gold mine";
+    private String name = "Cat breeder";
     private float woodResourcePerMinute = 0f;
     private float stoneResourcePerMinute = 0f;
     private float catResourcePerMinute = 2f;
