@@ -2,9 +2,7 @@ package se.nackademin.examensarbete.handlers;
 
 import java.io.Serializable;
 
-/**
- * Created by olofberg on 15-04-29.
- */
+
 public class ResourceHandler implements Serializable {
     private static ResourceHandler instance;
     private float numberOfTrees = 0;
@@ -16,6 +14,7 @@ public class ResourceHandler implements Serializable {
     }
 
     public static void setResourceHandler(ResourceHandler instance) {
+        //TODO should be able to create resourcehanlders from jsonObjects
         ResourceHandler.instance = instance;
     }
 
