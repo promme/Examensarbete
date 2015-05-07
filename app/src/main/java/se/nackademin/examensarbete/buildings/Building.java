@@ -6,11 +6,11 @@ package se.nackademin.examensarbete.buildings;
 public interface Building {
     String getName();
 
-    int getCatCost();
+    float getCatCost();
 
-    int getWoodCost();
+    float getWoodCost();
 
-    int getStoneCost();
+    float getStoneCost();
 
     float getCatResourcePerSecond();
 

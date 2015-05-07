@@ -7,9 +7,9 @@ import java.io.Serializable;
  */
 public class ResourceHandler implements Serializable {
     private static ResourceHandler instance;
-    private int numberOfTrees = 0;
-    private int numberOfStones = 0;
-    private int numberOfCats = 0;
+    private float numberOfTrees = 0;
+    private float numberOfStones = 0;
+    private float numberOfCats = 0;
 
     protected ResourceHandler() {
 
@@ -19,15 +19,15 @@ public class ResourceHandler implements Serializable {
         ResourceHandler.instance = instance;
     }
 
-    public void setNumberOfCats(int numberOfCats) {
+    public void setNumberOfCats(float numberOfCats) {
         this.numberOfCats = numberOfCats;
     }
 
-    public void setNumberOfTrees(int numberOfTrees) {
+    public void setNumberOfTrees(float numberOfTrees) {
         this.numberOfTrees = numberOfTrees;
     }
 
-    public void setNumberOfStones(int numberOfStones) {
+    public void setNumberOfStones(float numberOfStones) {
         this.numberOfStones = numberOfStones;
     }
 
@@ -38,41 +38,41 @@ public class ResourceHandler implements Serializable {
         return instance;
     }
 
-    public void addTrees(int addedTrees) {
+    public void addTrees(float addedTrees) {
         numberOfTrees = numberOfTrees + addedTrees;
     }
 
-    public void addCats(int addedCats) {
+    public void addCats(float addedCats) {
         numberOfCats = numberOfCats + addedCats;
     }
 
-    public void addStones(int addedStones) {
+    public void addStones(float addedStones) {
         numberOfStones = numberOfStones + addedStones;
     }
 
-    public void subtractCats(int removedCats) {
+    public void subtractCats(float removedCats) {
         numberOfCats = numberOfCats - removedCats;
     }
 
-    public void subtractTrees(int removedTrees) {
+    public void subtractTrees(float removedTrees) {
         numberOfTrees = numberOfCats - removedTrees;
 
     }
 
-    public void subtractStones(int removedStones) {
+    public void subtractStones(float removedStones) {
         numberOfStones = numberOfCats - removedStones;
 
     }
 
-    public int getNumberOfTrees() {
+    public float getNumberOfTrees() {
         return numberOfTrees;
     }
 
-    public int getNumberOfStones() {
+    public float getNumberOfStones() {
         return numberOfStones;
     }
 
-    public int getNumberOfCats() {
+    public float getNumberOfCats() {
         return numberOfCats;
     }
 }

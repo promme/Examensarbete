@@ -8,9 +8,9 @@ public class CatBreeder implements Building {
     private float woodResourcePerMinute = 0f;
     private float stoneResourcePerMinute = 0f;
     private float catResourcePerMinute = 2f;
-    private int catCost = 0;
-    private int stoneCost = 50;
-    private int woodCost = 50;
+    private float catCost = 0;
+    private float stoneCost = 50;
+    private float woodCost = 50;
 
     public CatBreeder() {
     }
@@ -21,17 +21,17 @@ public class CatBreeder implements Building {
     }
 
     @Override
-    public int getCatCost() {
+    public float getCatCost() {
         return catCost;
     }
 
     @Override
-    public int getWoodCost() {
+    public float getWoodCost() {
         return woodCost;
     }
 
     @Override
-    public int getStoneCost() {
+    public float getStoneCost() {
         return stoneCost;
     }
 

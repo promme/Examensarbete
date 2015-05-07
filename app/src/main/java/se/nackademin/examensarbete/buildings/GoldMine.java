@@ -8,9 +8,9 @@ public class GoldMine implements Building {
     private float woodResourcePerMinute = 0f;
     private float stoneResourcePerMinute = 2f;
     private float catResourcePerMinute = 0f;
-    private int catCost = 50;
-    private int stoneCost = 0;
-    private int woodCost = 0;
+    private float catCost = 50;
+    private float stoneCost = 0;
+    private float woodCost = 0;
 
     public GoldMine() {
 
@@ -22,17 +22,17 @@ public class GoldMine implements Building {
     }
 
     @Override
-    public int getCatCost() {
+    public float getCatCost() {
         return catCost;
     }
 
     @Override
-    public int getWoodCost() {
+    public float getWoodCost() {
         return woodCost;
     }
 
     @Override
-    public int getStoneCost() {
+    public float getStoneCost() {
         return stoneCost;
     }
 
