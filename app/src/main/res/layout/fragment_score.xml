@@ -20,24 +20,24 @@
 
 
     <TextView
-        android:id="@+id/treesResource"
+        android:id="@+id/lumberResource"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/catsResource"
-        android:text="@string/tree_resources" />
+        android:text="@string/lumber_resources" />
 
     <TextView
-        android:id="@+id/treesResourceNumber"
+        android:id="@+id/lumberResourceNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/treesResource"
-        android:layout_toRightOf="@+id/treesResource" />
+        android:layout_alignBottom="@+id/lumberResource"
+        android:layout_toRightOf="@+id/lumberResource" />
 
     <TextView
         android:id="@+id/stoneResource"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/treesResource"
+        android:layout_below="@+id/lumberResource"
         android:text="@string/stone_resources" />
 
     <TextView

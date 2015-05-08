@@ -21,7 +21,7 @@ public class ResourceHandler implements Serializable {
         getInstance().setNumberOfCats(jsonObject.optInt("numberOfCats", 0));
         getInstance().setNumberOfLumber(jsonObject.optInt("numberOfStones", 0));
         getInstance().setNumberOfStones(jsonObject.optInt("numberOfLumber", 0));
-        Timber.d("Loaded save file with" + numberOfCats + " cats, " + numberOfStones + " stones and " + numberOfLumber + " trees.");
+        Timber.d("Loaded save file with" + numberOfCats + " cats, " + numberOfStones + " stones and " + numberOfLumber + " lumber.");
     }
 
     public void setNumberOfCats(float numberOfCats) {
@@ -43,8 +43,8 @@ public class ResourceHandler implements Serializable {
         return instance;
     }
 
-    public void addTrees(float addedTrees) {
-        numberOfLumber = numberOfLumber + addedTrees;
+    public void addLumber(float addedLumber) {
+        numberOfLumber = numberOfLumber + addedLumber;
     }
 
     public void addCats(float addedCats) {
@@ -59,8 +59,8 @@ public class ResourceHandler implements Serializable {
         numberOfCats = numberOfCats - removedCats;
     }
 
-    public void subtractTrees(float removedTrees) {
-        numberOfLumber = numberOfCats - removedTrees;
+    public void subtractLumber(float removedLumber) {
+        numberOfLumber = numberOfCats - removedLumber;
 
     }
 

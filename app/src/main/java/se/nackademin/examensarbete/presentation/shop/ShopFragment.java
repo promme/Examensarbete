@@ -69,6 +69,6 @@ public class ShopFragment extends Fragment {
     private void buyBuilding(Building b){
         ResourceHandler.getInstance().subtractCats(b.getCatCost());
         ResourceHandler.getInstance().subtractStones(b.getStoneCost());
-                ResourceHandler.getInstance().subtractTrees(b.getLumberCost());
+                ResourceHandler.getInstance().subtractLumber(b.getLumberCost());
     }
 }

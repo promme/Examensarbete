@@ -16,7 +16,7 @@ import se.nackademin.examensarbete.handlers.ResourceHandler;
 public class ScoreFragment extends Fragment {
 
     private EventBus bus = EventBus.getDefault();
-    private TextView treesTextView;
+    private TextView lumberTextView;
     private TextView stonesTextView;
     private TextView catsTextView;
 
@@ -32,17 +32,17 @@ public class ScoreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_score, container, false);
-        treesTextView = (TextView) view.findViewById(R.id.treesResourceNumber);
+        lumberTextView = (TextView) view.findViewById(R.id.lumberResourceNumber);
         stonesTextView = (TextView) view.findViewById(R.id.stoneResourceNumber);
         catsTextView = (TextView) view.findViewById(R.id.catsResourceNumber);
-        treesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfLumber()));
+        lumberTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfLumber()));
         stonesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfStones()));
         catsTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfCats()));
         return view;
     }
 
     public void onEventMainThread(CatClickEvent event) {
-        treesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfLumber()));
+        lumberTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfLumber()));
         stonesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfStones()));
         catsTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfCats()));
     }
