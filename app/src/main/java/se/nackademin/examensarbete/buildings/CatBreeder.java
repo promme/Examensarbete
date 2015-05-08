@@ -5,12 +5,12 @@ package se.nackademin.examensarbete.buildings;
  */
 public class CatBreeder implements Building {
     private String name = "Cat breeder";
-    private float woodResourcePerMinute = 0f;
+    private float lumberResourcePerMinute = 0f;
     private float stoneResourcePerMinute = 0f;
     private float catResourcePerMinute = 2f;
     private float catCost = 0;
     private float stoneCost = 50;
-    private float woodCost = 50;
+    private float lumberCost = 50;
 
     public CatBreeder() {
     }
@@ -26,8 +26,8 @@ public class CatBreeder implements Building {
     }
 
     @Override
-    public float getWoodCost() {
-        return woodCost;
+    public float getLumberCost() {
+        return lumberCost;
     }
 
     @Override
@@ -41,8 +41,8 @@ public class CatBreeder implements Building {
     }
 
     @Override
-    public float getWoodResourcePerSecond() {
-        return woodResourcePerMinute;
+    public float getLumberResourcePerSecond() {
+        return lumberResourcePerMinute;
     }
 
     @Override

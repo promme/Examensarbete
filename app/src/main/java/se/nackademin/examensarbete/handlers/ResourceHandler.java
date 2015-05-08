@@ -9,7 +9,7 @@ import timber.log.Timber;
 
 public class ResourceHandler implements Serializable {
     private static ResourceHandler instance;
-    private float numberOfTrees = 0;
+    private float numberOfLumber = 0;
     private float numberOfStones = 0;
     private float numberOfCats = 0;
 
@@ -19,17 +19,17 @@ public class ResourceHandler implements Serializable {
 
     public void updateResourceHandlerFromJson(JSONObject jsonObject){
         getInstance().setNumberOfCats(jsonObject.optInt("numberOfCats", 0));
-        getInstance().setNumberOfTrees(jsonObject.optInt("numberOfStones", 0));
-        getInstance().setNumberOfStones(jsonObject.optInt("numberOfTrees", 0));
-        Timber.d("Loaded save file with" + numberOfCats + " cats, " + numberOfStones + " stones and " + numberOfTrees + " trees.");
+        getInstance().setNumberOfLumber(jsonObject.optInt("numberOfStones", 0));
+        getInstance().setNumberOfStones(jsonObject.optInt("numberOfLumber", 0));
+        Timber.d("Loaded save file with" + numberOfCats + " cats, " + numberOfStones + " stones and " + numberOfLumber + " trees.");
     }
 
     public void setNumberOfCats(float numberOfCats) {
         this.numberOfCats = numberOfCats;
     }
 
-    public void setNumberOfTrees(float numberOfTrees) {
-        this.numberOfTrees = numberOfTrees;
+    public void setNumberOfLumber(float numberOfLumber) {
+        this.numberOfLumber = numberOfLumber;
     }
 
     public void setNumberOfStones(float numberOfStones) {
@@ -44,7 +44,7 @@ public class ResourceHandler implements Serializable {
     }
 
     public void addTrees(float addedTrees) {
-        numberOfTrees = numberOfTrees + addedTrees;
+        numberOfLumber = numberOfLumber + addedTrees;
     }
 
     public void addCats(float addedCats) {
@@ -60,7 +60,7 @@ public class ResourceHandler implements Serializable {
     }
 
     public void subtractTrees(float removedTrees) {
-        numberOfTrees = numberOfCats - removedTrees;
+        numberOfLumber = numberOfCats - removedTrees;
 
     }
 
@@ -69,8 +69,8 @@ public class ResourceHandler implements Serializable {
 
     }
 
-    public float getNumberOfTrees() {
-        return numberOfTrees;
+    public float getNumberOfLumber() {
+        return numberOfLumber;
     }
 
     public float getNumberOfStones() {

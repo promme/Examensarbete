@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -41,7 +40,7 @@ public class ShopFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Building b = (Building) buildingAdapter.getItem(position);
                 if (canAffordBuilding(b)){
-                    //TODO LOGIC TO BUY STUFF
+
                 }else {
 
                 }
@@ -61,10 +60,15 @@ public class ShopFragment extends Fragment {
     private boolean canAffordBuilding(Building b) {
         if (ResourceHandler.getInstance().getNumberOfCats() >= b.getCatCost()
             && ResourceHandler.getInstance().getNumberOfStones() >= b.getStoneCost()
-            && ResourceHandler.getInstance().getNumberOfTrees() >= b.getWoodCost()) {
+            && ResourceHandler.getInstance().getNumberOfLumber() >= b.getLumberCost()) {
             return true;
         }
         return false;
 
+    }
+    private void buyBuilding(Building b){
+        ResourceHandler.getInstance().subtractCats(b.getCatCost());
+        ResourceHandler.getInstance().subtractStones(b.getStoneCost());
+                ResourceHandler.getInstance().subtractTrees(b.getLumberCost());
     }
 }

@@ -5,12 +5,12 @@ package se.nackademin.examensarbete.buildings;
  */
 public class GoldMine implements Building {
     private String name = "Cat-Gold mine";
-    private float woodResourcePerMinute = 0f;
+    private float lumberResourcePerMinute = 0f;
     private float stoneResourcePerMinute = 2f;
     private float catResourcePerMinute = 0f;
     private float catCost = 50;
     private float stoneCost = 0;
-    private float woodCost = 0;
+    private float lumberCost = 0;
 
     public GoldMine() {
 
@@ -27,8 +27,8 @@ public class GoldMine implements Building {
     }
 
     @Override
-    public float getWoodCost() {
-        return woodCost;
+    public float getLumberCost() {
+        return lumberCost;
     }
 
     @Override
@@ -42,8 +42,8 @@ public class GoldMine implements Building {
     }
 
     @Override
-    public float getWoodResourcePerSecond() {
-        return woodResourcePerMinute;
+    public float getLumberResourcePerSecond() {
+        return lumberResourcePerMinute;
     }
 
     @Override

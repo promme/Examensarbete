@@ -5,12 +5,12 @@ package se.nackademin.examensarbete.buildings;
  */
 public class LumberMill implements Building {
     private String name = "Lumber mill";
-    private float woodResourcePerMinute = 2f;
+    private float lumberResourcePerMinute = 2f;
     private float stoneResourcePerMinute = 0f;
     private float catResourcePerMinute = 0f;
     private float catCost = 50;
     private float stoneCost = 0;
-    private float woodCost = 0;
+    private float lumberCost = 0;
 
     public LumberMill() {
 
@@ -27,8 +27,8 @@ public class LumberMill implements Building {
     }
 
     @Override
-    public float getWoodCost() {
-        return woodCost;
+    public float getLumberCost() {
+        return lumberCost;
     }
 
     @Override
@@ -42,8 +42,8 @@ public class LumberMill implements Building {
     }
 
     @Override
-    public float getWoodResourcePerSecond() {
-        return woodResourcePerMinute;
+    public float getLumberResourcePerSecond() {
+        return lumberResourcePerMinute;
     }
 
     @Override

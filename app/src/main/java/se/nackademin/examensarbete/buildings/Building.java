@@ -8,13 +8,13 @@ public interface Building {
 
     float getCatCost();
 
-    float getWoodCost();
+    float getLumberCost();
 
     float getStoneCost();
 
     float getCatResourcePerSecond();
 
-    float getWoodResourcePerSecond();
+    float getLumberResourcePerSecond();
 
     float getStoneResourcePerSecond();
 

@@ -35,14 +35,14 @@ public class ScoreFragment extends Fragment {
         treesTextView = (TextView) view.findViewById(R.id.treesResourceNumber);
         stonesTextView = (TextView) view.findViewById(R.id.stoneResourceNumber);
         catsTextView = (TextView) view.findViewById(R.id.catsResourceNumber);
-        treesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfTrees()));
+        treesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfLumber()));
         stonesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfStones()));
         catsTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfCats()));
         return view;
     }
 
     public void onEventMainThread(CatClickEvent event) {
-        treesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfTrees()));
+        treesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfLumber()));
         stonesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfStones()));
         catsTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfCats()));
     }
