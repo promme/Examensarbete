@@ -17,11 +17,6 @@ public class ResourceHandler implements Serializable {
 
     }
 
-    public static void setResourceHandler(ResourceHandler instance) {
-        //TODO should be able to create resourcehanlders from jsonObjects
-        ResourceHandler.instance = instance;
-    }
-
     public void updateResourceHandlerFromJson(JSONObject jsonObject){
         getInstance().setNumberOfCats(jsonObject.optInt("numberOfCats", 0));
         getInstance().setNumberOfTrees(jsonObject.optInt("numberOfStones", 0));
