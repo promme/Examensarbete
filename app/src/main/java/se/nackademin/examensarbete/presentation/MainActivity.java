@@ -52,8 +52,7 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
                 .addApi(Games.API)
                 .addScope(Games.SCOPE_GAMES)
                 .build();
-
-        ResourceHandler.setResourceHandler(SaveLoadHandler.LoadResourcehandler(this));
+        SaveLoadHandler.LoadResourcehandler(this);
         //Planting Timber tree for logging
         Timber.plant(new Timber.DebugTree());
         //Fullscreen, remove the statusbar
@@ -110,7 +109,7 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
     @Override
     protected void onResume() {
         super.onResume();
-        ResourceHandler.setResourceHandler(SaveLoadHandler.LoadResourcehandler(this));
+        SaveLoadHandler.LoadResourcehandler(this);
     }
 
     @Override

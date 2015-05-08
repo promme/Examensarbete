@@ -4,6 +4,9 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -33,7 +36,7 @@ public class SaveLoadHandler {
         }
     }
 
-    public static ResourceHandler LoadResourcehandler(Context context) {
+    public static void LoadResourcehandler(Context context) {
         FileInputStream inputStream;
         InputStreamReader isr;
         try {
@@ -46,12 +49,13 @@ public class SaveLoadHandler {
                 sb.append(line);
             }
             Timber.d("Read file successfully!");
-            return gson.fromJson(sb.toString(), ResourceHandler.class);
+            ResourceHandler.getInstance().updateResourceHandlerFromJson(new JSONObject(sb.toString()));
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
         Timber.d("Could not read file");
-        return null;
     }
 }

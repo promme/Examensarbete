@@ -1,6 +1,10 @@
 package se.nackademin.examensarbete.handlers;
 
+import org.json.JSONObject;
+
 import java.io.Serializable;
+
+import timber.log.Timber;
 
 
 public class ResourceHandler implements Serializable {
@@ -16,6 +20,13 @@ public class ResourceHandler implements Serializable {
     public static void setResourceHandler(ResourceHandler instance) {
         //TODO should be able to create resourcehanlders from jsonObjects
         ResourceHandler.instance = instance;
+    }
+
+    public void updateResourceHandlerFromJson(JSONObject jsonObject){
+        getInstance().setNumberOfCats(jsonObject.optInt("numberOfCats", 0));
+        getInstance().setNumberOfTrees(jsonObject.optInt("numberOfStones", 0));
+        getInstance().setNumberOfStones(jsonObject.optInt("numberOfTrees", 0));
+        Timber.d("Loaded save file with" + numberOfCats + " cats, " + numberOfStones + " stones and " + numberOfTrees + " trees.");
     }
 
     public void setNumberOfCats(float numberOfCats) {
