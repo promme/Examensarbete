@@ -1,5 +1,7 @@
 package se.nackademin.examensarbete.buildings;
 
+import se.nackademin.examensarbete.handlers.BuildingHandler;
+
 /**
  * Created by olofberg on 15-04-29.
  */
@@ -48,5 +50,10 @@ public class CatBreeder implements Building {
     @Override
     public float getStoneResourcePerSecond() {
         return stoneResourcePerMinute;
+    }
+
+    @Override
+    public int getNumberOfMe() {
+        return BuildingHandler.getInstance().getNumberOfCatbreeders();
     }
 }

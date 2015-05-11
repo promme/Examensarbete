@@ -18,4 +18,6 @@ public interface Building {
 
     float getStoneResourcePerSecond();
 
+    int getNumberOfMe();
+
 }

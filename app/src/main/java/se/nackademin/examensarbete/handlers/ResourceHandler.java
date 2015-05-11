@@ -60,12 +60,12 @@ public class ResourceHandler implements Serializable {
     }
 
     public void subtractLumber(float removedLumber) {
-        numberOfLumber = numberOfCats - removedLumber;
+        numberOfLumber = numberOfLumber - removedLumber;
 
     }
 
     public void subtractStones(float removedStones) {
-        numberOfStones = numberOfCats - removedStones;
+        numberOfStones = numberOfStones - removedStones;
 
     }
 

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.buildings.Building;
+import se.nackademin.examensarbete.handlers.BuildingHandler;
 
 public class BuildingAdapter extends BaseAdapter {
     private ArrayList<Building> buildingList;
@@ -58,7 +59,7 @@ public class BuildingAdapter extends BaseAdapter {
         viewHolder.nameTextView = (TextView) view.findViewById(R.id.buildingNameTextView);
 
         //TODO: Design
-        viewHolder.amountTextView.setText("0");
+        viewHolder.amountTextView.setText(String.valueOf(buildingList.get(position).getNumberOfMe()));
         viewHolder.costTextView.setText(String.valueOf(buildingList.get(position).getCatCost()));
         viewHolder.nameTextView.setText(String.valueOf(buildingList.get(position).getName()));
         return view;
