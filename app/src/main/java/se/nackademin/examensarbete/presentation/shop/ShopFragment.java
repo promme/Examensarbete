@@ -9,6 +9,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.plattysoft.leonids.ParticleSystem;
+import com.plattysoft.leonids.modifiers.ScaleModifier;
+
 import java.util.ArrayList;
 
 import de.greenrobot.event.EventBus;
@@ -47,6 +50,14 @@ public class ShopFragment extends Fragment {
                 Building b = (Building) buildingAdapter.getItem(position);
                 if (canAffordBuilding(b)) {
                     buyBuilding(b);
+                    new ParticleSystem(getActivity(), 10, R.drawable.ic_launcher, 3000)
+                            .setSpeedByComponentsRange(-0.1f, 0.1f, -0.1f, 0.02f)
+                            .setAcceleration(0.000003f, 90)
+                            .setInitialRotationRange(0, 360)
+                            .setRotationSpeed(120)
+                            .setFadeOut(2000)
+                            .addModifier(new ScaleModifier(0f, 1.5f, 0, 1500))
+                            .oneShot(view, 8);
                 } else {
                     Toast.makeText(getActivity(), "You cannot afford that", Toast.LENGTH_LONG).show();
                 }
