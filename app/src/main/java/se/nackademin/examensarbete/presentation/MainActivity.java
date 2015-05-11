@@ -9,13 +9,16 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.games.Games;
+import com.google.example.games.basegameutils.BaseGameUtils;
 
 import java.util.List;
 import java.util.Vector;
 
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.R;
-import se.nackademin.examensarbete.eventbus.CatClickEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
 import se.nackademin.examensarbete.handlers.SaveLoadHandler;
 import se.nackademin.examensarbete.presentation.game.GameFragment;
@@ -23,13 +26,8 @@ import se.nackademin.examensarbete.presentation.shop.ShopFragment;
 import se.nackademin.examensarbete.presentation.statistic.StatisticFragment;
 import timber.log.Timber;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.games.Games;
-import com.google.example.games.basegameutils.BaseGameUtils;
 
-
-public class MainActivity extends ActionBarActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
+public class MainActivity extends ActionBarActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private ViewPager viewPager;
     private FragmentAdapter fragmentAdapter;
@@ -68,6 +66,7 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }
+
 
     private void setupGameLayout() {
         List<Fragment> fragmentList = new Vector<>();
