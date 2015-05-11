@@ -48,6 +48,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
         new ParticleSystem(getActivity(), 10, R.drawable.star, 3000)
                 .setSpeedByComponentsRange(-0.1f, 0.1f, -0.1f, 0.02f)
                 .setAcceleration(0.000003f, 90)
@@ -56,6 +57,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
                 .setFadeOut(2000)
                 .addModifier(new ScaleModifier(0f, 1.5f, 0, 1500))
                 .oneShot(v, 1);
+
         catButton.setSelected(!catButton.isSelected());
         if(catButton.isSelected()){
 

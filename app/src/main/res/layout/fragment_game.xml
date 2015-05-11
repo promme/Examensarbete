@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +9,33 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:id="@+id/clock"
-        android:text="clock"/>
+        android:text="clock"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SignInButton"
+        android:text="SignIn"
+        android:layout_alignTop="@+id/AchivementButton"
+        android:layout_toLeftOf="@+id/AchivementButton"
+        android:layout_toStartOf="@+id/AchivementButton" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/AchivementButton"
+        android:text="Achivements"
+        android:layout_below="@+id/game_kittenButton"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/LeaderBoardsButton"
+        android:text="Leaderboards"
+        android:layout_alignTop="@+id/AchivementButton"
+        android:layout_toRightOf="@+id/AchivementButton"
+        android:layout_toEndOf="@+id/AchivementButton" />
 
     <ImageButton
         android:id="@+id/game_kittenButton"
@@ -17,6 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@null" />
+        android:background="@null"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
-</FrameLayout>
+</RelativeLayout>
