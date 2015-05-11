@@ -5,18 +5,16 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/statistic_listview_item_category_name"
+        android:id="@+id/nameStatisticText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="category name goes here"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/statistic_listview_item_category_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="data value goes here"
+        android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-
+    <TextView
+        android:id="@+id/valueStatisticText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 </LinearLayout>
