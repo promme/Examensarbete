@@ -1,14 +1,28 @@
 package se.nackademin.examensarbete.handlers;
 
+import com.google.gson.annotations.Expose;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import se.nackademin.examensarbete.buildings.Building;
+import se.nackademin.examensarbete.buildings.CatBreeder;
+import se.nackademin.examensarbete.buildings.GoldMine;
+import se.nackademin.examensarbete.buildings.LumberMill;
+import timber.log.Timber;
 
 public class BuildingHandler {
     private static BuildingHandler instance;
+    @Expose
     private int numberOfCatbreeders = 0;
+    @Expose
     private int numberOfGoldMines = 0;
+    @Expose
     private int numberOfLumbermills = 0;
-    protected BuildingHandler() {
 
+    private ArrayList<Building> buildings = new ArrayList<>();
+
+    protected BuildingHandler() {
     }
 
     public static BuildingHandler getInstance() {
@@ -20,6 +34,7 @@ public class BuildingHandler {
 
     public static void setInstance(BuildingHandler instance) {
         BuildingHandler.instance = instance;
+
     }
 
     public int getNumberOfCatbreeders() {
@@ -47,6 +62,7 @@ public class BuildingHandler {
     }
 
     public void addBuilding(Building b) {
+        updateBuildingHandler();
         switch (b.getName()) {
             case ("Cat breeder"):
                 numberOfCatbreeders = numberOfCatbreeders + 1;
@@ -61,5 +77,38 @@ public class BuildingHandler {
                 break;
 
         }
+    }
+
+    public void updateBuildingHandler() {
+        buildings.clear();
+        for (int i = 0; i < numberOfCatbreeders; i++) {
+            buildings.add(new CatBreeder());
+        }
+        for (int i = 0; i < numberOfGoldMines; i++) {
+            buildings.add(new GoldMine());
+
+        }
+        for (int i = 0; i < numberOfLumbermills; i++) {
+            buildings.add(new LumberMill());
+
+        }
+    }
+    public HashMap<String, Integer> getResourcesPerSecond(){
+        int totalCatResourcePerSecond = 0;
+        int totalLumberResourcePerSecond = 0;
+        int totalStoneResourcePerSecond = 0;
+        HashMap<String, Integer> allResourcesPerMinHashmap = new HashMap<>();
+        for (int i = 0; i < buildings.size(); i++) {
+            totalCatResourcePerSecond += buildings.get(i).getCatResourcePerSecond();
+            totalLumberResourcePerSecond += buildings.get(i).getLumberResourcePerSecond();
+            totalStoneResourcePerSecond += buildings.get(i).getStoneResourcePerSecond();
+        }
+        Timber.d("Buildings size =" +  buildings.size() + " Cats " + totalCatResourcePerSecond + " lumber " + totalLumberResourcePerSecond + " stone " + totalStoneResourcePerSecond);
+        allResourcesPerMinHashmap.put("totalCatResourcePerSecond", totalCatResourcePerSecond);
+        allResourcesPerMinHashmap.put("totalLumberResourcePerSecond", totalLumberResourcePerSecond);
+        allResourcesPerMinHashmap.put("totalStoneResourcePerSecond", totalStoneResourcePerSecond);
+
+
+        return allResourcesPerMinHashmap;
     }
 }

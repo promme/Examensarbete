@@ -1,23 +1,29 @@
 package se.nackademin.examensarbete.handlers;
 
+import com.google.gson.annotations.Expose;
+
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 import timber.log.Timber;
 
 
 public class ResourceHandler implements Serializable {
     private static ResourceHandler instance;
+    @Expose
     private float numberOfLumber = 0;
+    @Expose
     private float numberOfStones = 0;
+    @Expose
     private float numberOfCats = 0;
 
     protected ResourceHandler() {
 
     }
 
-    public void updateResourceHandlerFromJson(JSONObject jsonObject){
+    public void updateResourceHandlerFromJson(JSONObject jsonObject) {
         getInstance().setNumberOfCats(jsonObject.optInt("numberOfCats", 0));
         getInstance().setNumberOfLumber(jsonObject.optInt("numberOfStones", 0));
         getInstance().setNumberOfStones(jsonObject.optInt("numberOfLumber", 0));
@@ -79,5 +85,12 @@ public class ResourceHandler implements Serializable {
 
     public float getNumberOfCats() {
         return numberOfCats;
+    }
+
+    public void updateResourcesPerSecond() {
+        HashMap<String, Integer> hashMap = BuildingHandler.getInstance().getResourcesPerSecond();
+        addCats(hashMap.get("totalCatResourcePerSecond"));
+        addLumber(hashMap.get("totalLumberResourcePerSecond"));
+        addStones(hashMap.get("totalStoneResourcePerSecond"));
     }
 }

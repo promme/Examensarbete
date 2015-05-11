@@ -3,7 +3,7 @@ package se.nackademin.examensarbete.handlers;
 import android.content.Context;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.google.gson.GsonBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +21,7 @@ import timber.log.Timber;
  */
 public class SaveLoadHandler {
     private static String fileName = "savefile.json";
-    private static Gson gson = new Gson();
+    private static Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
     public static void SaveResourceHandler(Context context) {
         String json = gson.toJson(ResourceHandler.getInstance()) + "&&&" + gson.toJson(BuildingHandler.getInstance());
@@ -52,10 +52,13 @@ public class SaveLoadHandler {
             String [] json = sb.toString().split("&&&");
             BuildingHandler.setInstance(gson.fromJson(json[1], BuildingHandler.class));
             ResourceHandler.getInstance().updateResourceHandlerFromJson(new JSONObject(json[0]));
+            BuildingHandler.getInstance().updateBuildingHandler();
         } catch (IOException e) {
             e.printStackTrace();
+            Timber.e(e.toString());
         } catch (JSONException e) {
             e.printStackTrace();
+            Timber.e(e.toString());
         }
 
         Timber.d("Could not read file");

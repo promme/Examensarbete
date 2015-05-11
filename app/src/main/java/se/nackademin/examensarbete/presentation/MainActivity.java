@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Vector;
 
 import de.greenrobot.event.EventBus;
+import se.nackademin.examensarbete.GameThread;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.AchivementEvent;
 import se.nackademin.examensarbete.eventbus.LeaderboardEvent;
@@ -40,6 +41,7 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
     private boolean resolvingConnectionFailure = false;
     private boolean autoStartSignInflow = true;
     private boolean signInClicked = false;
+    private Thread thread = new Thread(new GameThread());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,6 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
         //Setup fragments
         setupGameLayout();
         //must be after gameLayout
-        startGameThread();
         //Admob
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -101,7 +102,9 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
 
 
     private void startGameThread() {
-        //new Thread(new GameThread()).start();
+        if (!thread.isAlive()){
+        thread.start();
+        }
     }
 
     @Override
@@ -120,11 +123,13 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
     protected void onPause() {
         SaveLoadHandler.SaveResourceHandler(this);
         super.onPause();
+        thread.interrupt();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        startGameThread();
         SaveLoadHandler.LoadResourcehandler(this);
     }
 
