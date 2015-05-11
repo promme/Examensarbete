@@ -19,6 +19,7 @@ import java.util.Vector;
 
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.R;
+import se.nackademin.examensarbete.eventbus.AchivementEvent;
 import se.nackademin.examensarbete.eventbus.LeaderboardEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
 import se.nackademin.examensarbete.handlers.SaveLoadHandler;
@@ -86,10 +87,16 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
 //    }
 
     public void onEventMainThread(LeaderboardEvent event) {
+        //Post to leaderboard
         //Games.Leaderboards.submitScore(googleApiClient, "CgkItpSbptAKEAIQAg", 133333);
+
+        //Show leaderboard
         startActivityForResult(Games.Leaderboards.getLeaderboardIntent(googleApiClient,
                 "CgkItpSbptAKEAIQAg"), 1);
-        Timber.d("Gamescore posted");
+    }
+
+    public void onEventMainThread(AchivementEvent event){
+        startActivityForResult(Games.Achievements.getAchievementsIntent(googleApiClient), 1);
     }
 
 
