@@ -19,6 +19,7 @@ import java.util.Vector;
 
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.R;
+import se.nackademin.examensarbete.eventbus.LeaderboardEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
 import se.nackademin.examensarbete.handlers.SaveLoadHandler;
 import se.nackademin.examensarbete.presentation.game.GameFragment;
@@ -42,7 +43,7 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        bus.register(this);
+        bus.register(this);
 
         googleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -83,6 +84,14 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
 //    public void onEventMainThread(CatClickEvent event) {
 //        Games.Achievements.unlock(googleApiClient, "CgkItpSbptAKEAIQAQ");
 //    }
+
+    public void onEventMainThread(LeaderboardEvent event) {
+        //Games.Leaderboards.submitScore(googleApiClient, "CgkItpSbptAKEAIQAg", 133333);
+        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(googleApiClient,
+                "CgkItpSbptAKEAIQAg"), 1);
+        Timber.d("Gamescore posted");
+    }
+
 
     private void startGameThread() {
         //new Thread(new GameThread()).start();

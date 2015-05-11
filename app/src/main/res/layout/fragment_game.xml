@@ -16,26 +16,26 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/SignInButton"
+        android:id="@+id/signInButton"
         android:text="SignIn"
-        android:layout_alignTop="@+id/AchivementButton"
-        android:layout_toLeftOf="@+id/AchivementButton"
-        android:layout_toStartOf="@+id/AchivementButton" />
+        android:layout_alignTop="@+id/achivementButton"
+        android:layout_toLeftOf="@+id/achivementButton"
+        android:layout_toStartOf="@+id/achivementButton" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/AchivementButton"
+        android:id="@+id/achivementButton"
         android:text="Achivements"
         android:layout_below="@+id/game_kittenButton"
         android:layout_centerHorizontal="true" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/LeaderBoardsButton"
+        android:id="@+id/leaderBoardsButton"
         android:text="Leaderboards"
-        android:layout_alignTop="@+id/AchivementButton"
-        android:layout_toRightOf="@+id/AchivementButton"
-        android:layout_toEndOf="@+id/AchivementButton" />
+        android:layout_alignTop="@+id/achivementButton"
+        android:layout_toRightOf="@+id/achivementButton"
+        android:layout_toEndOf="@+id/achivementButton" />
 
     <ImageButton
         android:id="@+id/game_kittenButton"

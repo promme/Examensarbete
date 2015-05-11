@@ -16,7 +16,9 @@ import com.plattysoft.leonids.modifiers.ScaleModifier;
 
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.R;
+import se.nackademin.examensarbete.eventbus.AchivementEvent;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
+import se.nackademin.examensarbete.eventbus.LeaderboardEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
 
 /**
@@ -25,6 +27,7 @@ import se.nackademin.examensarbete.handlers.ResourceHandler;
 public class GameFragment extends Fragment implements View.OnClickListener {
 
     private ImageButton catButton;
+    private Button signin, achivements, leaderboards;
     private EventBus bus = EventBus.getDefault();
     private Chronometer chronometer;
 
@@ -37,6 +40,24 @@ public class GameFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_game, container, false);
         chronometer = (Chronometer)view.findViewById(R.id.clock);
         catButton = (ImageButton) view.findViewById(R.id.game_kittenButton);
+        signin = (Button)view.findViewById(R.id.signInButton);
+        achivements = (Button)view.findViewById(R.id.achivementButton);
+        achivements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AchivementEvent achivementEvent = new AchivementEvent();
+                bus.post(achivementEvent);
+            }
+        });
+        leaderboards = (Button)view.findViewById(R.id.leaderBoardsButton);
+        leaderboards.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LeaderboardEvent event = new LeaderboardEvent();
+                bus.post(event);
+            }
+        });
+
         catButton.setOnClickListener(this);
         setupChronometer();
         return view;
