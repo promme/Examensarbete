@@ -53,6 +53,7 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
                 .addScope(Games.SCOPE_GAMES)
                 .build();
         SaveLoadHandler.LoadResourcehandler(this);
+
         //Planting Timber tree for logging
         Timber.plant(new Timber.DebugTree());
         //Fullscreen, remove the statusbar

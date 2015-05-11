@@ -47,6 +47,12 @@ public class GameFragment extends Fragment implements View.OnClickListener {
                 .setFadeOut(2000)
                 .addModifier(new ScaleModifier(0f, 1.5f, 0, 1500))
                 .oneShot(v, 1);
+        catButton.setSelected(!catButton.isSelected());
+        if(catButton.isSelected()){
+
+        }else{
+
+        }
 
         ResourceHandler.getInstance().addCats(1);
         CatClickEvent event = new CatClickEvent();

@@ -6,7 +6,7 @@
 
     <ImageButton
         android:id="@+id/game_kittenButton"
-        android:src="@drawable/grumpycat"
+        android:src="@drawable/catbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
