@@ -62,7 +62,6 @@ public class BuildingHandler {
     }
 
     public void addBuilding(Building b) {
-        updateBuildingHandler();
         switch (b.getName()) {
             case ("Cat breeder"):
                 numberOfCatbreeders = numberOfCatbreeders + 1;
@@ -77,6 +76,7 @@ public class BuildingHandler {
                 break;
 
         }
+        updateBuildingHandler();
     }
 
     public void updateBuildingHandler() {
