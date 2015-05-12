@@ -22,7 +22,6 @@ import se.nackademin.examensarbete.GameThread;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.AchivementEvent;
 import se.nackademin.examensarbete.eventbus.LeaderboardEvent;
-import se.nackademin.examensarbete.handlers.ResourceHandler;
 import se.nackademin.examensarbete.handlers.SaveLoadHandler;
 import se.nackademin.examensarbete.presentation.game.GameFragment;
 import se.nackademin.examensarbete.presentation.shop.ShopFragment;
@@ -41,7 +40,8 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
     private boolean resolvingConnectionFailure = false;
     private boolean autoStartSignInflow = true;
     private boolean signInClicked = false;
-    private Thread thread = new Thread(new GameThread());
+    private Thread thread;
+    private GameThread gameThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,14 +96,16 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
                 "CgkItpSbptAKEAIQAg"), 1);
     }
 
-    public void onEventMainThread(AchivementEvent event){
+    public void onEventMainThread(AchivementEvent event) {
         startActivityForResult(Games.Achievements.getAchievementsIntent(googleApiClient), 1);
     }
 
 
     private void startGameThread() {
-        if (!thread.isAlive()){
-        thread.start();
+        if (thread == null && gameThread == null) {
+            gameThread = new GameThread();
+            thread = new Thread(gameThread);
+            thread.start();
         }
     }
 
@@ -122,6 +124,11 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
     @Override
     protected void onPause() {
         SaveLoadHandler.SaveResourceHandler(this);
+        if (gameThread != null) {
+            gameThread.stopThread();
+        }
+        gameThread = null;
+        thread = null;
         super.onPause();
     }
 

@@ -10,10 +10,14 @@ import timber.log.Timber;
  */
 public class GameThread implements Runnable {
     private EventBus bus = EventBus.getDefault();
+    private boolean running = true;
+    public void stopThread(){
+        running = false;
+    }
 
     @Override
     public void run() {
-        while (true) {
+        while (running) {
             try {
                 CatClickEvent timerEvent = new CatClickEvent();
                 bus.post(timerEvent);
