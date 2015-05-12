@@ -49,7 +49,7 @@ public class SaveLoadHandler {
                 sb.append(line);
             }
             Timber.d("Read file successfully!");
-            String [] json = sb.toString().split("&&&");
+            String[] json = sb.toString().split("&&&");
             BuildingHandler.setInstance(gson.fromJson(json[1], BuildingHandler.class));
             ResourceHandler.getInstance().updateResourceHandlerFromJson(new JSONObject(json[0]));
             BuildingHandler.getInstance().updateBuildingHandler();

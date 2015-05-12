@@ -45,23 +45,23 @@ public class StatisticListViewAdapter extends BaseAdapter {
         View view;
         ViewHolder holder;
 
-        if(convertView == null){
+        if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.statistic_adapter_row, parent, false);
             holder = new ViewHolder();
-            holder.statisticName = (TextView)view.findViewById(R.id.nameStatisticText);
-            holder.statisticValue = (TextView)view.findViewById(R.id.valueStatisticText);
+            holder.statisticName = (TextView) view.findViewById(R.id.nameStatisticText);
+            holder.statisticValue = (TextView) view.findViewById(R.id.valueStatisticText);
             view.setTag(holder);
-        }else{
+        } else {
             view = convertView;
-            holder = (ViewHolder)view.getTag();
+            holder = (ViewHolder) view.getTag();
         }
         holder.statisticName.setText(statisticList.get(position).getName());
         holder.statisticValue.setText(statisticList.get(position).getValue());
         return view;
     }
 
-    public static class ViewHolder{
+    public static class ViewHolder {
         TextView statisticName;
         TextView statisticValue;
     }

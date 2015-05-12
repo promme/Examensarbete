@@ -1,7 +1,6 @@
 package se.nackademin.examensarbete.presentation.game;
 
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
 
-import com.google.android.gms.games.Games;
 import com.plattysoft.leonids.ParticleSystem;
 import com.plattysoft.leonids.modifiers.ScaleModifier;
 
@@ -38,10 +36,10 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game, container, false);
-        chronometer = (Chronometer)view.findViewById(R.id.clock);
+        chronometer = (Chronometer) view.findViewById(R.id.clock);
         catButton = (ImageButton) view.findViewById(R.id.game_kittenButton);
-        signin = (Button)view.findViewById(R.id.signInButton);
-        achivements = (Button)view.findViewById(R.id.achivementButton);
+        signin = (Button) view.findViewById(R.id.signInButton);
+        achivements = (Button) view.findViewById(R.id.achivementButton);
         achivements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +47,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
                 bus.post(achivementEvent);
             }
         });
-        leaderboards = (Button)view.findViewById(R.id.leaderBoardsButton);
+        leaderboards = (Button) view.findViewById(R.id.leaderBoardsButton);
         leaderboards.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +61,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-    private void setupChronometer(){
+    private void setupChronometer() {
         chronometer.start();
     }
 

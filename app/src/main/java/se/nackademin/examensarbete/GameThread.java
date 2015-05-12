@@ -3,7 +3,6 @@ package se.nackademin.examensarbete;
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
-import timber.log.Timber;
 
 /**
  * Created by Jonkan on 2015-04-29.
@@ -11,7 +10,8 @@ import timber.log.Timber;
 public class GameThread implements Runnable {
     private EventBus bus = EventBus.getDefault();
     private boolean running = true;
-    public void stopThread(){
+
+    public void stopThread() {
         running = false;
     }
 

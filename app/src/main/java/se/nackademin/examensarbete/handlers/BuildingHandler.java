@@ -93,7 +93,8 @@ public class BuildingHandler {
 
         }
     }
-    public HashMap<String, Integer> getResourcesPerSecond(){
+
+    public HashMap<String, Integer> getResourcesPerSecond() {
         int totalCatResourcePerSecond = 0;
         int totalLumberResourcePerSecond = 0;
         int totalStoneResourcePerSecond = 0;
@@ -103,7 +104,7 @@ public class BuildingHandler {
             totalLumberResourcePerSecond += buildings.get(i).getLumberResourcePerSecond();
             totalStoneResourcePerSecond += buildings.get(i).getStoneResourcePerSecond();
         }
-        Timber.d("Buildings size =" +  buildings.size() + " Cats " + totalCatResourcePerSecond + " lumber " + totalLumberResourcePerSecond + " stone " + totalStoneResourcePerSecond);
+        Timber.d("Buildings size =" + buildings.size() + " Cats " + totalCatResourcePerSecond + " lumber " + totalLumberResourcePerSecond + " stone " + totalStoneResourcePerSecond);
         allResourcesPerMinHashmap.put("totalCatResourcePerSecond", totalCatResourcePerSecond);
         allResourcesPerMinHashmap.put("totalLumberResourcePerSecond", totalLumberResourcePerSecond);
         allResourcesPerMinHashmap.put("totalStoneResourcePerSecond", totalStoneResourcePerSecond);

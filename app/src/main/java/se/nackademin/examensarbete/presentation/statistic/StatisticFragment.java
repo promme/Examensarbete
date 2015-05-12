@@ -29,7 +29,7 @@ public class StatisticFragment extends Fragment {
         // Required empty public constructor
     }
 
-    private void initStatistics(){
+    private void initStatistics() {
         statisticList = new ArrayList<>();
         statisticList.add(new Statistic("Test", "Test 1"));
         statisticList.add(new Statistic("Test", "Test 2"));
@@ -63,7 +63,7 @@ public class StatisticFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_statistic, container, false);
-        listView = (ListView)view.findViewById(R.id.statistic_listview);
+        listView = (ListView) view.findViewById(R.id.statistic_listview);
         adapter = new StatisticListViewAdapter(statisticList, getActivity());
         listView.setAdapter(adapter);
         return view;
