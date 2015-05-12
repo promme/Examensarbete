@@ -8,21 +8,41 @@
         android:id="@+id/buildingNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BuildingName"/>
+        android:text="BuildingName" />
 
     <TextView
-        android:id="@+id/costTextView"
+        android:id="@+id/catCostTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Cost"
-        android:layout_toRightOf="@+id/buildingNameTextView" />
+        android:layout_toRightOf="@+id/buildingNameTextView"
+        android:text="Cat Cost" />
+
+    <TextView
+        android:text="Lumber Cost"
+        android:id="@+id/lumberCostTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/catCostTextView"
+        android:layout_alignRight="@+id/catCostTextView"
+        android:layout_alignEnd="@+id/catCostTextView" />
+
+    <TextView
+        android:text="Stone Cost"
+        android:id="@+id/stoneCostTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lumberCostTextView"
+        android:layout_alignLeft="@+id/lumberCostTextView"
+        android:layout_alignStart="@+id/lumberCostTextView" />
 
     <TextView
         android:id="@+id/amountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:layout_gravity="right"
-        android:text="AmoutntOwned"
-        android:layout_toRightOf="@id/costTextView"/>
+        android:text="AmoutntOwned" />
 </RelativeLayout>

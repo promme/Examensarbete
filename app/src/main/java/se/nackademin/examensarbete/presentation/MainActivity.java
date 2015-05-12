@@ -123,7 +123,6 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
     protected void onPause() {
         SaveLoadHandler.SaveResourceHandler(this);
         super.onPause();
-        thread.interrupt();
     }
 
     @Override

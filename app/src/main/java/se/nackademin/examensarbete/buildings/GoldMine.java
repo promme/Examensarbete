@@ -1,5 +1,6 @@
 package se.nackademin.examensarbete.buildings;
 
+import se.nackademin.examensarbete.handlers.AlgorithmHandler;
 import se.nackademin.examensarbete.handlers.BuildingHandler;
 
 /**
@@ -25,17 +26,17 @@ public class GoldMine implements Building {
 
     @Override
     public float getCatCost() {
-        return catCost;
+        return AlgorithmHandler.CalculatePrice(catCost, getNumberOfMe());
     }
 
     @Override
     public float getLumberCost() {
-        return lumberCost;
+        return AlgorithmHandler.CalculatePrice(lumberCost, getNumberOfMe());
     }
 
     @Override
     public float getStoneCost() {
-        return stoneCost;
+        return AlgorithmHandler.CalculatePrice(stoneCost, getNumberOfMe());
     }
 
     @Override

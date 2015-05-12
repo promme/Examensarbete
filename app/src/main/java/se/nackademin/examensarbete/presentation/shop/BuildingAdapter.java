@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.buildings.Building;
-import se.nackademin.examensarbete.handlers.BuildingHandler;
 
 public class BuildingAdapter extends BaseAdapter {
     private ArrayList<Building> buildingList;
@@ -55,19 +54,24 @@ public class BuildingAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.amountTextView = (TextView) view.findViewById(R.id.amountTextView);
-        viewHolder.costTextView = (TextView) view.findViewById(R.id.costTextView);
+        viewHolder.catCostTextView = (TextView) view.findViewById(R.id.catCostTextView);
         viewHolder.nameTextView = (TextView) view.findViewById(R.id.buildingNameTextView);
-
+        viewHolder.lumberCostTextView = (TextView) view.findViewById(R.id.lumberCostTextView);
+        viewHolder.stoneCostTextView = (TextView) view.findViewById(R.id.stoneCostTextView);
         //TODO: Design
         viewHolder.amountTextView.setText(String.valueOf(buildingList.get(position).getNumberOfMe()));
-        viewHolder.costTextView.setText(String.valueOf(buildingList.get(position).getCatCost()));
+        viewHolder.catCostTextView.setText(String.valueOf(buildingList.get(position).getCatCost()));
+        viewHolder.lumberCostTextView.setText(String.valueOf(buildingList.get(position).getLumberCost()));
+        viewHolder.stoneCostTextView.setText(String.valueOf(buildingList.get(position).getStoneCost()));
         viewHolder.nameTextView.setText(String.valueOf(buildingList.get(position).getName()));
         return view;
     }
 
     static class ViewHolder {
-        TextView costTextView;
+        TextView catCostTextView;
         TextView nameTextView;
         TextView amountTextView;
+        TextView lumberCostTextView;
+        TextView stoneCostTextView;
     }
 }
