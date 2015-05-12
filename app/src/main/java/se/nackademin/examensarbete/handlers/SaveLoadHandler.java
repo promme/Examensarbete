@@ -5,26 +5,21 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import se.nackademin.examensarbete.SaveFile;
 import timber.log.Timber;
 
-/**
- * Created by olofberg on 15-04-29.
- */
 public class SaveLoadHandler {
     private static String fileName = "savefile.json";
     private static Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
     public static void SaveResourceHandler(Context context) {
-        String json = gson.toJson(ResourceHandler.getInstance()) + "&&&" + gson.toJson(BuildingHandler.getInstance());
+        String json = gson.toJson(new SaveFile());
         FileOutputStream outputStream;
         try {
             outputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
@@ -44,19 +39,16 @@ public class SaveLoadHandler {
             isr = new InputStreamReader(fis);
             BufferedReader bufferedReader = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
-            String line = "";
+            String line;
             while ((line = bufferedReader.readLine()) != null) {
                 sb.append(line);
             }
             Timber.d("Read file successfully!");
-            String[] json = sb.toString().split("&&&");
-            BuildingHandler.setInstance(gson.fromJson(json[1], BuildingHandler.class));
-            ResourceHandler.getInstance().updateResourceHandlerFromJson(new JSONObject(json[0]));
+            SaveFile s = gson.fromJson(sb.toString(), SaveFile.class);
+            BuildingHandler.setInstance(s.getBuildingHandler());
+            ResourceHandler.setInstance(s.getResourceHandler());
             BuildingHandler.getInstance().updateBuildingHandler();
         } catch (IOException e) {
-            e.printStackTrace();
-            Timber.e(e.toString());
-        } catch (JSONException e) {
             e.printStackTrace();
             Timber.e(e.toString());
         }

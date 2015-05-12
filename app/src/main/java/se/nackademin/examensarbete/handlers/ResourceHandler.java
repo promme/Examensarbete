@@ -93,4 +93,8 @@ public class ResourceHandler implements Serializable {
         addLumber(hashMap.get("totalLumberResourcePerSecond"));
         addStones(hashMap.get("totalStoneResourcePerSecond"));
     }
+
+    public static void setInstance(ResourceHandler instance) {
+        ResourceHandler.instance = instance;
+    }
 }
