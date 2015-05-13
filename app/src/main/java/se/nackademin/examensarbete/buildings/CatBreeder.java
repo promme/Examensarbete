@@ -8,9 +8,9 @@ import se.nackademin.examensarbete.handlers.BuildingHandler;
  */
 public class CatBreeder implements Building {
     private String name = "Cat breeder";
-    private float lumberResourcePerMinute = 0f;
-    private float stoneResourcePerMinute = 0f;
-    private float catResourcePerMinute = 2f;
+    private float lumberResourcePerSecond = 0f;
+    private float stoneResourcePerSecond = 0f;
+    private float catResourcePerSecond = 2f;
     private float catCost = 0;
     private float stoneCost = 50;
     private float lumberCost = 50;
@@ -41,17 +41,17 @@ public class CatBreeder implements Building {
 
     @Override
     public float getCatResourcePerSecond() {
-        return catResourcePerMinute;
+        return catResourcePerSecond;
     }
 
     @Override
     public float getLumberResourcePerSecond() {
-        return lumberResourcePerMinute;
+        return lumberResourcePerSecond;
     }
 
     @Override
     public float getStoneResourcePerSecond() {
-        return stoneResourcePerMinute;
+        return stoneResourcePerSecond;
     }
 
     @Override

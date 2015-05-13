@@ -8,9 +8,9 @@ import se.nackademin.examensarbete.handlers.BuildingHandler;
  */
 public class LumberMill implements Building {
     private String name = "Lumber mill";
-    private float lumberResourcePerMinute = 2f;
-    private float stoneResourcePerMinute = 0f;
-    private float catResourcePerMinute = 0f;
+    private float lumberResourcePerSecond = 2f;
+    private float stoneResourcePerSecond = 0f;
+    private float catResourcePerSecond = 0f;
     private float catCost = 50;
     private float stoneCost = 0;
     private float lumberCost = 0;
@@ -41,17 +41,17 @@ public class LumberMill implements Building {
 
     @Override
     public float getCatResourcePerSecond() {
-        return catResourcePerMinute;
+        return catResourcePerSecond;
     }
 
     @Override
     public float getLumberResourcePerSecond() {
-        return lumberResourcePerMinute;
+        return lumberResourcePerSecond;
     }
 
     @Override
     public float getStoneResourcePerSecond() {
-        return stoneResourcePerMinute;
+        return stoneResourcePerSecond;
     }
 
     @Override
