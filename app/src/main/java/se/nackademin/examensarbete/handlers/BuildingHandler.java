@@ -101,6 +101,7 @@ public class BuildingHandler {
         HashMap<String, Integer> allResourcesPerSecHashmap = new HashMap<>();
         for (int i = 0; i < buildings.size(); i++) {
             if (buildings.get(i) == null){
+                Timber.e("Building is null, position: " + i);
                 continue;
             }
             totalCatResourcePerSecond += buildings.get(i).getCatResourcePerSecond();
