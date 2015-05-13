@@ -1,5 +1,7 @@
 package se.nackademin.examensarbete.handlers;
 
+import com.google.gson.annotations.Expose;
+
 import timber.log.Timber;
 
 /**
@@ -7,6 +9,7 @@ import timber.log.Timber;
  */
 public class StatisticHandler {
     private static StatisticHandler instance;
+    @Expose
     float totalAmountOfClicks = 0;
 
 
@@ -16,7 +19,6 @@ public class StatisticHandler {
 
     public void addClick(){
         totalAmountOfClicks++;
-        Timber.d("****** HITLER ****** "+totalAmountOfClicks);
     }
 
     public float getTotalAmountOfClicks() {

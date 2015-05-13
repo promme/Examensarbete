@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 
 import se.nackademin.examensarbete.handlers.BuildingHandler;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
+import se.nackademin.examensarbete.handlers.StatisticHandler;
 
 
 public class SaveFile {
@@ -11,10 +12,13 @@ public class SaveFile {
     ResourceHandler resourceHandler;
     @Expose
     BuildingHandler buildingHandler;
+    @Expose
+    StatisticHandler statisticHandler;
 
     public SaveFile() {
         buildingHandler = BuildingHandler.getInstance();
         resourceHandler = ResourceHandler.getInstance();
+        statisticHandler = StatisticHandler.getInstance();
     }
 
     public ResourceHandler getResourceHandler() {
@@ -23,5 +27,9 @@ public class SaveFile {
 
     public BuildingHandler getBuildingHandler() {
         return buildingHandler;
+    }
+
+    public StatisticHandler getStatisticHandler() {
+        return statisticHandler;
     }
 }

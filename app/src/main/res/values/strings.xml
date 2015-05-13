@@ -16,4 +16,5 @@
 
 <!-- Google Play Games Services -->
     <string name="app_id">365152356918</string>
+    <string name="statistics_total_amount_of_clicks">Total Clicks</string>
 </resources>

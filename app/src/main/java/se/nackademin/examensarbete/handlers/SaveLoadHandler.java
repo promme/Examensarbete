@@ -47,6 +47,7 @@ public class SaveLoadHandler {
             SaveFile s = gson.fromJson(sb.toString(), SaveFile.class);
             BuildingHandler.setInstance(s.getBuildingHandler());
             ResourceHandler.setInstance(s.getResourceHandler());
+            StatisticHandler.setInstance(s.getStatisticHandler());
             BuildingHandler.getInstance().updateBuildingHandler();
         } catch (IOException e) {
             e.printStackTrace();

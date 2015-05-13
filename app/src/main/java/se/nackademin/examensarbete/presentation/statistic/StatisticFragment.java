@@ -14,7 +14,9 @@ import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
 import se.nackademin.examensarbete.handlers.StatisticHandler;
+import se.nackademin.examensarbete.statistics.CatClickStatistics;
 import se.nackademin.examensarbete.statistics.Statistic;
+import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,26 +34,8 @@ public class StatisticFragment extends Fragment {
 
     private void initStatistics() {
         statisticList = new ArrayList<>();
-        statisticList.add(new Statistic("Test", "Test 1"));
-        statisticList.add(new Statistic("Test", "Test 2"));
-        statisticList.add(new Statistic("Test", "Test 3"));
-        statisticList.add(new Statistic("Test", "Test 4"));
-        statisticList.add(new Statistic("Test", "Test 5"));
-        statisticList.add(new Statistic("Test", "Test 6"));
-        statisticList.add(new Statistic("Test", "Test 7"));
-        statisticList.add(new Statistic("Test", "Test 8"));
-        statisticList.add(new Statistic("Test", "Test 9"));
-        statisticList.add(new Statistic("Test", "Test 10"));
-        statisticList.add(new Statistic("Test", "Test 11"));
-        statisticList.add(new Statistic("Test", "Test 12"));
-        statisticList.add(new Statistic("Test", "Test 13"));
-        statisticList.add(new Statistic("Test", "Test 14"));
-        statisticList.add(new Statistic("Test", "Test 15"));
-        statisticList.add(new Statistic("Test", "Test 16"));
-        statisticList.add(new Statistic("Test", "Test 17"));
-        statisticList.add(new Statistic("Test", "Test 18"));
-        statisticList.add(new Statistic("Test", "Test 19"));
-        statisticList.add(new Statistic("Test", "Test 20"));
+        statisticList.add(new CatClickStatistics());
+
     }
 
     @Override
@@ -71,13 +55,12 @@ public class StatisticFragment extends Fragment {
     }
 
     public void onEventMainThread(CatClickEvent event) {
-       // StatisticHandler.getInstance().addClick();
+      adapter.notifyDataSetChanged();
 
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        //TODO Uppdatera vyn från resurshanterarn
     }
 }

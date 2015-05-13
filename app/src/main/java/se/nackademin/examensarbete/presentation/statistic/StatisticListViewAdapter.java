@@ -56,8 +56,8 @@ public class StatisticListViewAdapter extends BaseAdapter {
             view = convertView;
             holder = (ViewHolder) view.getTag();
         }
-        holder.statisticName.setText(statisticList.get(position).getName());
-        holder.statisticValue.setText(statisticList.get(position).getValue());
+        holder.statisticName.setText(statisticList.get(position).getStatisticsName());
+        holder.statisticValue.setText(statisticList.get(position).getStatisticsValue());
         return view;
     }
 
