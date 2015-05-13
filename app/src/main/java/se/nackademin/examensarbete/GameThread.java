@@ -21,9 +21,8 @@ public class GameThread implements Runnable {
     public void run() {
         while (running) {
             try {
-                UpdateUIEvent timerEvent = new UpdateUIEvent();
                 achivements.checkAchivements();
-                bus.post(timerEvent);
+                bus.post(new UpdateUIEvent());
                 Thread.sleep(1000);
                 ResourceHandler.getInstance().updateResourcesPerSecond();
             } catch (InterruptedException e) {
