@@ -15,8 +15,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:text="Cat Cost"
+        android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/buildingNameTextView"
-        android:text="Cat Cost" />
+        android:layout_toEndOf="@+id/buildingNameTextView"
+        android:layout_marginLeft="55dp"
+        android:layout_marginStart="55dp" />
 
     <TextView
         android:text="Lumber Cost"
@@ -40,9 +44,10 @@
         android:id="@+id/amountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="30dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="right"
-        android:text="AmoutntOwned" />
+        android:text="AmountOwned" />
 </RelativeLayout>

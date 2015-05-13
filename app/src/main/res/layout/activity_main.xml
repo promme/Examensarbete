@@ -26,7 +26,7 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
-        android:background="#ff8787ff">
+        android:background="@color/babyblue">
 
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView"

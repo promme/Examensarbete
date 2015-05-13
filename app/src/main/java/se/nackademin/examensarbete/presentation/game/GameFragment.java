@@ -14,10 +14,10 @@ import com.plattysoft.leonids.modifiers.ScaleModifier;
 
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.R;
-import se.nackademin.examensarbete.eventbus.AchivementEvent;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
 import se.nackademin.examensarbete.eventbus.CheckAchivementsEvent;
 import se.nackademin.examensarbete.eventbus.LeaderboardEvent;
+import se.nackademin.examensarbete.eventbus.UpdateUIEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
 
 /**
@@ -78,7 +78,7 @@ public class GameFragment extends Fragment implements View.OnClickListener {
                 .addModifier(new ScaleModifier(0f, 1.5f, 0, 1500))
                 .oneShot(v, 1);
         ResourceHandler.getInstance().addCats(1);
-        CatClickEvent event = new CatClickEvent();
-        bus.post(event);
+        bus.post(new CatClickEvent());
+        bus.post(new UpdateUIEvent());
     }
 }
