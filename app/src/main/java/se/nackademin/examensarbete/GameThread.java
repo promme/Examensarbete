@@ -2,6 +2,7 @@ package se.nackademin.examensarbete;
 
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
+import se.nackademin.examensarbete.eventbus.UpdateUIEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
 
 /**
@@ -19,7 +20,7 @@ public class GameThread implements Runnable {
     public void run() {
         while (running) {
             try {
-                CatClickEvent timerEvent = new CatClickEvent();
+                UpdateUIEvent timerEvent = new UpdateUIEvent();
                 bus.post(timerEvent);
                 Thread.sleep(1000);
                 ResourceHandler.getInstance().updateResourcesPerSecond();

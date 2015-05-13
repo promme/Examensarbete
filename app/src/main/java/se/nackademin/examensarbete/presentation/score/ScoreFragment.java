@@ -10,6 +10,7 @@ import android.widget.TextView;
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
+import se.nackademin.examensarbete.eventbus.UpdateUIEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
 
 
@@ -41,7 +42,7 @@ public class ScoreFragment extends Fragment {
         return view;
     }
 
-    public void onEventMainThread(CatClickEvent event) {
+    public void onEventMainThread(UpdateUIEvent event) {
         lumberTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfLumber()));
         stonesTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfStones()));
         catsTextView.setText(String.valueOf(ResourceHandler.getInstance().getNumberOfCats()));
