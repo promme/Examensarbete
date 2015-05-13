@@ -83,7 +83,7 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
         viewPager.setOffscreenPageLimit(2);
     }
 
-//    public void onEventMainThread(CatClickEvent event) {
+//    public void onEventMainThread(AchivementEvent event) {
 //        Games.Achievements.unlock(googleApiClient, "CgkItpSbptAKEAIQAQ");
 //    }
 

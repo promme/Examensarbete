@@ -13,6 +13,7 @@ import java.util.List;
 import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
+import se.nackademin.examensarbete.handlers.StatisticHandler;
 import se.nackademin.examensarbete.statistics.Statistic;
 
 /**
@@ -70,6 +71,7 @@ public class StatisticFragment extends Fragment {
     }
 
     public void onEventMainThread(CatClickEvent event) {
+       // StatisticHandler.getInstance().addClick();
 
     }
 

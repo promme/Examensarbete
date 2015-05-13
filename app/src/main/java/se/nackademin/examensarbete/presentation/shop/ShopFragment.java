@@ -20,7 +20,7 @@ import se.nackademin.examensarbete.buildings.Building;
 import se.nackademin.examensarbete.buildings.CatBreeder;
 import se.nackademin.examensarbete.buildings.GoldMine;
 import se.nackademin.examensarbete.buildings.LumberMill;
-import se.nackademin.examensarbete.eventbus.CatClickEvent;
+import se.nackademin.examensarbete.eventbus.UpdateUIEvent;
 import se.nackademin.examensarbete.handlers.BuildingHandler;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
 
@@ -89,7 +89,7 @@ public class ShopFragment extends Fragment {
         ResourceHandler.getInstance().subtractStones(b.getStoneCost());
         ResourceHandler.getInstance().subtractLumber(b.getLumberCost());
         BuildingHandler.getInstance().addBuilding(b);
-        bus.post(new CatClickEvent());
+        bus.post(new UpdateUIEvent());
         buildingAdapter.notifyDataSetChanged();
     }
 }
