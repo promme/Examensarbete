@@ -23,6 +23,7 @@ import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.AchivementEvent;
 import se.nackademin.examensarbete.eventbus.LeaderboardEvent;
 import se.nackademin.examensarbete.handlers.SaveLoadHandler;
+import se.nackademin.examensarbete.handlers.StatisticHandler;
 import se.nackademin.examensarbete.presentation.game.GameFragment;
 import se.nackademin.examensarbete.presentation.shop.ShopFragment;
 import se.nackademin.examensarbete.presentation.statistic.StatisticFragment;
@@ -87,16 +88,12 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
 //        Games.Achievements.unlock(googleApiClient, "CgkItpSbptAKEAIQAQ");
 //    }
 
-    public void onEventMainThread(LeaderboardEvent event) {
-        //Post to leaderboard
-        //Games.Leaderboards.submitScore(googleApiClient, "CgkItpSbptAKEAIQAg", 133333);
-
+    public void onEvent(LeaderboardEvent event) {
         //Show leaderboard
-        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(googleApiClient,
-                "CgkItpSbptAKEAIQAg"), 1);
+        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(googleApiClient, "CgkItpSbptAKEAIQAg"), 1);
     }
 
-    public void onEventMainThread(AchivementEvent event) {
+    public void onEvent(AchivementEvent event) {
         startActivityForResult(Games.Achievements.getAchievementsIntent(googleApiClient), 1);
     }
 
@@ -107,6 +104,11 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
             thread = new Thread(gameThread);
             thread.start();
         }
+    }
+
+    private void saveToLeaderBoard(){
+        //Post to leaderboard
+      Games.Leaderboards.submitScore(googleApiClient, "CgkItpSbptAKEAIQAg", Math.round(StatisticHandler.getInstance().getTotalAmountOfClicks()));
     }
 
     @Override
@@ -129,6 +131,7 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
         }
         gameThread = null;
         thread = null;
+        saveToLeaderBoard();
         super.onPause();
     }
 
