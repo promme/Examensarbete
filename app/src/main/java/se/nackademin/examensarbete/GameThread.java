@@ -1,7 +1,6 @@
 package se.nackademin.examensarbete;
 
 import de.greenrobot.event.EventBus;
-import se.nackademin.examensarbete.eventbus.CatClickEvent;
 import se.nackademin.examensarbete.eventbus.UpdateUIEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
 
@@ -24,7 +23,7 @@ public class GameThread implements Runnable {
                 achivements.checkAchivements();
                 bus.post(new UpdateUIEvent());
                 Thread.sleep(1000);
-                ResourceHandler.getInstance().updateResourcesPerSecond();
+                ResourceHandler.getInstance().resourcesPerSecondTic();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -87,7 +87,7 @@ public class ResourceHandler implements Serializable {
         return numberOfCats;
     }
 
-    public void updateResourcesPerSecond() {
+    public void resourcesPerSecondTic() {
         HashMap<String, Integer> hashMap = BuildingHandler.getInstance().getResourcesPerSecond();
         addCats(hashMap.get("totalCatResourcePerSecond"));
         addLumber(hashMap.get("totalLumberResourcePerSecond"));
