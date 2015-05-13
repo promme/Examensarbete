@@ -16,6 +16,7 @@ import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.AchivementEvent;
 import se.nackademin.examensarbete.eventbus.CatClickEvent;
+import se.nackademin.examensarbete.eventbus.CheckAchivementsEvent;
 import se.nackademin.examensarbete.eventbus.LeaderboardEvent;
 import se.nackademin.examensarbete.handlers.ResourceHandler;
 
@@ -43,8 +44,8 @@ public class GameFragment extends Fragment implements View.OnClickListener {
         achivements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AchivementEvent achivementEvent = new AchivementEvent();
-                bus.post(achivementEvent);
+                CheckAchivementsEvent checkAchivementsEvent = new CheckAchivementsEvent();
+                bus.post(checkAchivementsEvent);
             }
         });
         leaderboards = (Button) view.findViewById(R.id.leaderBoardsButton);

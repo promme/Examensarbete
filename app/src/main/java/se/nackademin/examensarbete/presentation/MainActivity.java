@@ -21,6 +21,7 @@ import de.greenrobot.event.EventBus;
 import se.nackademin.examensarbete.GameThread;
 import se.nackademin.examensarbete.R;
 import se.nackademin.examensarbete.eventbus.AchivementEvent;
+import se.nackademin.examensarbete.eventbus.CheckAchivementsEvent;
 import se.nackademin.examensarbete.eventbus.LeaderboardEvent;
 import se.nackademin.examensarbete.handlers.SaveLoadHandler;
 import se.nackademin.examensarbete.handlers.StatisticHandler;
@@ -84,16 +85,16 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
         viewPager.setOffscreenPageLimit(2);
     }
 
-//    public void onEventMainThread(AchivementEvent event) {
-//        Games.Achievements.unlock(googleApiClient, "CgkItpSbptAKEAIQAQ");
-//    }
+    public void onEventMainThread(AchivementEvent event) {
+        Games.Achievements.unlock(googleApiClient, event.getAchivementID());
+    }
 
     public void onEvent(LeaderboardEvent event) {
         //Show leaderboard
         startActivityForResult(Games.Leaderboards.getLeaderboardIntent(googleApiClient, "CgkItpSbptAKEAIQAg"), 1);
     }
 
-    public void onEvent(AchivementEvent event) {
+    public void onEvent(CheckAchivementsEvent event) {
         startActivityForResult(Games.Achievements.getAchievementsIntent(googleApiClient), 1);
     }
 
@@ -131,7 +132,9 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
         }
         gameThread = null;
         thread = null;
-        saveToLeaderBoard();
+        if(googleApiClient.isConnected()){
+            saveToLeaderBoard();
+        }
         super.onPause();
     }
 
@@ -139,6 +142,9 @@ public class MainActivity extends ActionBarActivity implements GoogleApiClient.C
     protected void onResume() {
         super.onResume();
         startGameThread();
+        if(googleApiClient.isConnected()){
+            saveToLeaderBoard();
+        }
         SaveLoadHandler.LoadResourcehandler(this);
     }
 

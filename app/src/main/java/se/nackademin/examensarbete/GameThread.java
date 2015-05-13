@@ -11,6 +11,7 @@ import se.nackademin.examensarbete.handlers.ResourceHandler;
 public class GameThread implements Runnable {
     private EventBus bus = EventBus.getDefault();
     private boolean running = true;
+    private Achivements achivements = new Achivements();
 
     public void stopThread() {
         running = false;
@@ -21,6 +22,7 @@ public class GameThread implements Runnable {
         while (running) {
             try {
                 UpdateUIEvent timerEvent = new UpdateUIEvent();
+                achivements.checkAchivements();
                 bus.post(timerEvent);
                 Thread.sleep(1000);
                 ResourceHandler.getInstance().updateResourcesPerSecond();
