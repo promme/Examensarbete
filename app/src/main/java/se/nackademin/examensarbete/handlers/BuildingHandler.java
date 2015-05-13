@@ -100,6 +100,9 @@ public class BuildingHandler {
         int totalStoneResourcePerSecond = 0;
         HashMap<String, Integer> allResourcesPerSecHashmap = new HashMap<>();
         for (int i = 0; i < buildings.size(); i++) {
+            if (buildings.get(i) == null){
+                continue;
+            }
             totalCatResourcePerSecond += buildings.get(i).getCatResourcePerSecond();
             totalLumberResourcePerSecond += buildings.get(i).getLumberResourcePerSecond();
             totalStoneResourcePerSecond += buildings.get(i).getStoneResourcePerSecond();
