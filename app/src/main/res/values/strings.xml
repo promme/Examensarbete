@@ -5,11 +5,12 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+<!-- ? -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="lumber_resources">Lumber</string>
     <string name="stone_resources">Stone</string>
     <string name="cats_resources">Cats</string>
+    <string name="app_title">Cat Clickur 2011</string>
 
 <!-- Admob -->
     <string name="banner_ad_unit_id">ca-app-pub-8514264669161248/5859177417</string>
