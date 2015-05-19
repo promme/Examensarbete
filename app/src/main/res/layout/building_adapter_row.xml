@@ -4,50 +4,130 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/buildingNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BuildingName" />
 
-    <TextView
-        android:id="@+id/catCostTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Cat Cost"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/buildingNameTextView"
-        android:layout_toEndOf="@+id/buildingNameTextView"
-        android:layout_marginLeft="55dp"
-        android:layout_marginStart="55dp" />
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:weightSum="100">
 
-    <TextView
-        android:text="Lumber Cost"
-        android:id="@+id/lumberCostTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/catCostTextView"
-        android:layout_alignRight="@+id/catCostTextView"
-        android:layout_alignEnd="@+id/catCostTextView" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="80"
+            android:orientation="vertical">
 
-    <TextView
-        android:text="Stone Cost"
-        android:id="@+id/stoneCostTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lumberCostTextView"
-        android:layout_alignLeft="@+id/lumberCostTextView"
-        android:layout_alignStart="@+id/lumberCostTextView" />
+            <TextView
+                android:id="@+id/buildingNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BuildingName" />
 
-    <TextView
-        android:id="@+id/amountTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_gravity="right"
-        android:text="AmountOwned" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description:"
+                android:textStyle="italic" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:weightSum="99">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="33"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/cat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Cats" />
+
+                    <TextView
+                        android:id="@+id/catCostTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cat"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="Cat Cost" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="33"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/lumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Lumber" />
+
+                    <TextView
+                        android:id="@+id/lumberCostTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/lumber"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="Lumber Cost" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="33"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/stone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Stones" />
+
+                    <TextView
+                        android:id="@+id/stoneCostTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/stone"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="Stone Cost" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="20"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/amountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AmountOwned"
+                android:textSize="30dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 </RelativeLayout>
