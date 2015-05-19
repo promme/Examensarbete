@@ -7,9 +7,9 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="lumber_resources">Lumber:&#160; </string>
-    <string name="stone_resources">Stone:&#160; </string>
-    <string name="cats_resources">Cats:&#160; </string>
+    <string name="lumber_resources">Lumber</string>
+    <string name="stone_resources">Stone</string>
+    <string name="cats_resources">Cats</string>
 
 <!-- Admob -->
     <string name="banner_ad_unit_id">ca-app-pub-8514264669161248/5859177417</string>
