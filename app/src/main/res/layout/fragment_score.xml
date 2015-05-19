@@ -10,8 +10,7 @@
         android:id="@+id/fragment_score_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:background="#ff2029ff">
+        android:padding="8dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,7 +32,6 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="33"
-            android:background="#ffff0008"
             android:layout_gravity="center"
             android:gravity="center">
 
@@ -60,7 +58,6 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="33"
-            android:background="#ffff0008"
             android:gravity="center">
 
             <TextView
@@ -86,7 +83,6 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="33"
-            android:background="#ffff0008"
             android:gravity="center">
 
             <TextView
