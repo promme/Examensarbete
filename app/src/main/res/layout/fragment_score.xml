@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="@string/app_title"
-            android:textAppearance="?android:attr/textAppearanceMedium"/>
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </RelativeLayout>
 
@@ -31,25 +31,26 @@
             android:id="@+id/fragment_score_left"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="33"
-            android:layout_gravity="center"
-            android:gravity="center">
+            android:layout_weight="33">
 
-            <TextView
-                android:id="@+id/catsResource"
+            <ImageView
+                android:id="@+id/catIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="@string/cats_resources"/>
+                android:background="@drawable/circle_cat_icon"
+                android:padding="7dp"
+                android:src="@drawable/iconcat"
+                android:scaleType="centerInside"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:id="@+id/catsResourceNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/catIcon"
                 android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_below="@id/catsResource"/>
+                android:layout_centerVertical="true" />
 
         </RelativeLayout>
 
@@ -57,24 +58,26 @@
             android:id="@+id/fragment_score_middle"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="33"
-            android:gravity="center">
+            android:layout_weight="33">
 
-            <TextView
-                android:id="@+id/lumberResource"
+            <ImageView
+                android:id="@+id/lumberIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lumber_resources"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"/>
+                android:background="@drawable/circle_cat_icon"
+                android:padding="7dp"
+                android:src="@drawable/iconlumber"
+                android:scaleType="centerInside"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:id="@+id/lumberResourceNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/lumberResource"
+                android:layout_below="@id/lumberIcon"
                 android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true" />
 
         </RelativeLayout>
 
@@ -82,24 +85,26 @@
             android:id="@+id/fragment_score_right"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="33"
-            android:gravity="center">
+            android:layout_weight="33">
 
-            <TextView
-                android:id="@+id/stoneResource"
+            <ImageView
+                android:id="@+id/stoneIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/stone_resources"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"/>
+                android:background="@drawable/circle_cat_icon"
+                android:padding="7dp"
+                android:src="@drawable/iconstone"
+                android:scaleType="centerInside"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:id="@+id/stoneResourceNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/stoneResource"
+                android:layout_below="@id/stoneIcon"
                 android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true" />
 
         </RelativeLayout>
     </LinearLayout>
