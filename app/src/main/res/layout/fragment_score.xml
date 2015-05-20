@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/babyblue"
     android:orientation="vertical"
+
     tools:context="se.nackademin.examensarbete.score">
 
     <RelativeLayout
